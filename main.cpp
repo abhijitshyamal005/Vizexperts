@@ -1,5 +1,3 @@
-// Enhanced Catmull-ROM Spline with Labels and Wireframe
-// Compile: g++ main.cpp -o spline.exe -I./include -L./lib -lfreeglut -lopengl32 -lglu32
 
 #include <windows.h>
 #include <GL/gl.h>
