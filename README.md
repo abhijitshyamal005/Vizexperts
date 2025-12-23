@@ -2,6 +2,7 @@
 
 This sample extrudes geometry along a Catmull–Rom spline, with optional texturing, wireframe overlay, labels, and camera controls. It matches the provided assignment requirements: reads control points from a text file, accepts a PNG/JPEG texture, and extrudes at a configurable width.
 
+![Program Output](output.png)
 ## Requirements
 - Windows with OpenGL
 - freeglut (DLL available in the project folder)
