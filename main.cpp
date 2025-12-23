@@ -383,10 +383,16 @@ int main(int argc, char** argv) {
     std::string pointsFile = "Assignment Points.txt";
     
     if (argc > 1) pointsFile = argv[1];
-    if (argc > 2) extrusionWidth = std::stof(argv[2]);
+    if (argc > 2) textureFilePath = argv[2];
+    if (argc > 3) extrusionWidth = std::stof(argv[3]);
     
     std::cout << "=== Catmull-ROM Spline Extrusion ===" << std::endl;
     std::cout << "Loading points from: " << pointsFile << std::endl;
+    if (!textureFilePath.empty()) {
+        std::cout << "Texture file: " << textureFilePath << std::endl;
+    } else {
+        std::cout << "Texture file: (none, flat color)" << std::endl;
+    }
     
     if (!readPoints(pointsFile)) {
         std::cout << "Failed to read points file. Creating default points..." << std::endl;
@@ -394,6 +400,10 @@ int main(int argc, char** argv) {
     }
     
     generateSpline();
+    
+    if (!textureFilePath.empty()) {
+        textureId = loadTexture(textureFilePath);
+    }
     
     std::cout << "\n=== Controls ===" << std::endl;
     std::cout << "  W/S - Increase/Decrease width" << std::endl;
